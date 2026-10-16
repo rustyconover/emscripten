@@ -30,6 +30,10 @@ See docs/process.md for more on how version tagging works.
   `FS.filesystems['MEMFS']` with plain `MEMFS`. (#27940)
 - libpng port updated from 1.6.58 to 1.6.59. (#27956)
 - compiler-rt was updated to LLVM 23.1.3. (#28011)
+- In `MAIN_MODULE` builds the GOT entries (and table slots) for the main
+  module's exports are now created on demand, when first needed by a side
+  module, rather than all at startup.  This can significantly reduce startup
+  time for programs with a large number of exports. (#27993)
 
 6.0.12 - 10/08/26
 -----------------
